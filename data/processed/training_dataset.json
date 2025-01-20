@@ -1,0 +1,22 @@
+[
+  {
+    "input": "def add(a, b):",
+    "output": "return a + b"
+  },
+  {
+    "input": "def subtract(a, b):",
+    "output": "return a - b"
+  },
+  {
+    "input": "def factorial(n):",
+    "output": "return 1 if n == 0 else n * factorial(n-1)"
+  },
+  {
+    "input": "Créer une fonction Python pour additionner deux nombres.",
+    "output": "def add(a, b):\n    return a + b"
+  },
+  {
+    "input": "Écrire une fonction Python pour calculer la factorielle.",
+    "output": "def factorial(n):\n    return 1 if n == 0 else n * factorial(n-1)"
+  }
+]

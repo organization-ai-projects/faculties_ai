@@ -1,0 +1,42 @@
+[
+  {
+    "principle": "Principe de responsabilité unique (SRP)",
+    "description": "Une classe doit avoir une seule raison de changer, c'est-à-dire qu'elle doit avoir une seule responsabilité.",
+    "example": {
+      "bad": "class GestionUtilisateur {\n  ajouter_utilisateur(utilisateur) { // Ajouter un utilisateur à la base de données }\n  envoyer_email(utilisateur) { // Envoyer un email }\n}",
+      "good": "class GestionUtilisateur {\n  ajouter_utilisateur(utilisateur) { // Ajouter un utilisateur à la base de données }\n}\nclass ServiceEmail {\n  envoyer_email(utilisateur) { // Envoyer un email }\n}"
+    }
+  },
+  {
+    "principle": "Principe ouvert/fermé (OCP)",
+    "description": "Les entités logicielles doivent être ouvertes à l'extension mais fermées à la modification.",
+    "example": {
+      "bad": "class Forme {\n  surface() { }\n}\nclass Rectangle extends Forme {\n  surface() { return largeur * hauteur; }\n}",
+      "good": "class Forme {\n  surface() { }\n}\nclass Rectangle extends Forme {\n  surface() { return largeur * hauteur; }\n}\nclass Cercle extends Forme {\n  surface() { return Math.PI * rayon * rayon; }\n}"
+    }
+  },
+  {
+    "principle": "Principe de substitution de Liskov (LSP)",
+    "description": "Les objets d'une classe de base doivent pouvoir être remplacés par des objets d'une classe dérivée sans affecter la fonctionnalité.",
+    "example": {
+      "bad": "class Rectangle {\n  set_largeur(largeur) { this.largeur = largeur; }\n  set_hauteur(hauteur) { this.hauteur = hauteur; }\n}\nclass Carré extends Rectangle {\n  set_largeur(largeur) { this.largeur = this.hauteur = largeur; }\n  set_hauteur(hauteur) { this.hauteur = this.largeur = hauteur; }\n}",
+      "good": "class Forme {\n  surface() { }\n}\nclass Rectangle extends Forme {\n  surface() { return this.largeur * this.hauteur; }\n}\nclass Carré extends Rectangle {\n  surface() { return this.côté * this.côté; }\n}"
+    }
+  },
+  {
+    "principle": "Principe de ségrégation des interfaces (ISP)",
+    "description": "Il est préférable d'avoir plusieurs interfaces spécifiques à un client plutôt qu'une seule interface générale.",
+    "example": {
+      "bad": "class Machine {\n  imprimer() { }\n  scanner() { }\n  faxer() { }\n}",
+      "good": "class Imprimante {\n  imprimer() { }\n}\nclass Scanner {\n  scanner() { }\n}\nclass Fax {\n  faxer() { }\n}"
+    }
+  },
+  {
+    "principle": "Principe d'inversion des dépendances (DIP)",
+    "description": "Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau. Les deux doivent dépendre des abstractions.",
+    "example": {
+      "bad": "class Ampoule {\n  allumer() { }\n  éteindre() { }\n}\nclass Interrupteur {\n  constructor(ampoule) { this.ampoule = ampoule; }\n  actionner() { this.ampoule.allumer(); }\n}",
+      "good": "class Commutable {\n  allumer() { }\n  éteindre() { }\n}\nclass Ampoule extends Commutable {\n  allumer() { }\n  éteindre() { }\n}\nclass Interrupteur {\n  constructor(appareil) { this.appareil = appareil; }\n  actionner() { this.appareil.allumer(); }\n}"
+    }
+  }
+]
