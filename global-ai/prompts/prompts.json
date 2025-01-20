@@ -1,0 +1,11 @@
+
+[
+    {
+        "input": "Créer une structure de projet TypeScript.",
+        "output": {
+            "structure": {
+                "README.md": "# Example Project\n\nCeci est un projet généré par l'IA."
+            }
+        }
+    }
+]
