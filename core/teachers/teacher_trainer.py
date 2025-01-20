@@ -1,6 +1,6 @@
 # core/teachers/teacher_trainer.py
-from core.utils.trainer import BaseTrainer
-import logging
+from core.utils.base_trainer import BaseTrainer
+from core.utils.logger import Logger
 
 class TeacherTrainer(BaseTrainer):
     """
@@ -19,13 +19,14 @@ class TeacherTrainer(BaseTrainer):
         super().__init__(teacher_model, learning_rate)
         self.batch_size = batch_size
         self.epochs = epochs
-        self.logger = logging.getLogger(__name__)
+        self.logger = Logger.get_logger(__name__)  # Utilisation du logger centralisé
 
     def train(self, train_dataloader):
         """
         Lance l'entraînement du professeur IA.
         :param train_dataloader: Dataloader des données d'entraînement.
         """
+        self.logger.info("Début de l'entraînement des professeurs IA.")
         self.configure_scheduler(train_dataloader, self.epochs)
 
         for epoch in range(self.epochs):
