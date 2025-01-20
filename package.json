@@ -1,0 +1,12 @@
+{
+  "name": "ai-generator",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/generate-structure.ts"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2",
+    "axios": "^0.21.1"
+  }
+}
