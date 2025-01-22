@@ -1,7 +1,0 @@
-
-[
-    {
-        "input": "Créer un module TypeScript pour gérer les utilisateurs.",
-        "output": "export class User { constructor(public name: string) {} }"
-    }
-]

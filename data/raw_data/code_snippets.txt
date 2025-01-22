@@ -1,8 +1,0 @@
-def add(a, b):
-    return a + b
-
-def subtract(a, b):
-    return a - b
-
-def factorial(n):
-    return 1 if n == 0 else n * factorial(n-1)

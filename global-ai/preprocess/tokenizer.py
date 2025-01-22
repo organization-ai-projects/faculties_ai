@@ -1,2 +1,0 @@
-# Tokenizer
-def tokenize(): pass
