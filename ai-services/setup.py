@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="ai_services",
@@ -13,4 +13,7 @@ setup(
         "pandas>=2.0",
         "fastapi>=0.80",
     ],
+    extras_require={
+        "dev": ["pytest", "pytest-cov", "black", "flake8"],
+    },
 )
