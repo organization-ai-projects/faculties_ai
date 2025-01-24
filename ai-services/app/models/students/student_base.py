@@ -3,6 +3,7 @@ from torch import nn
 from torch.nn import Module
 from app.utils.logger import Logger
 
+
 class StudentBase(nn.Module):
     """
     Base class for the student model.

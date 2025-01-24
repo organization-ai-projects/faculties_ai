@@ -1,6 +1,56 @@
+# Logs
+*.log
+
+# Fichiers d'environnement (toutes variantes)
+*.env
+*.env.*
+*.local.env
+
+# Python (générique)
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 *.egg-info/
-.env
-pytorch-env/
+*.pytest_cache/
+.coverage
+.coveragerc
+
+# Environnements virtuels
+*/ai-env/
+.venv/
+env/
+venv/
+
+# Node.js / Frontend
 node_modules/
+pnpm-lock.yaml
+yarn.lock
+
+# Tests / Coverage (générique)
+*.test.*
+*.spec.*
+.coverage.*
+__pycache__/
+.pytest_cache/
+
+# IDE / Outils
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Build outputs (générique)
+dist/
+build/
+out/
+target/
+
+# Extensions spécifiques
+*.egg-info/
+*.log
+
+# Temp files
+*.tmp
+*.temp

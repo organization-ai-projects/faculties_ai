@@ -1,4 +1,4 @@
-import os  # Import manquant ajouté
+import os
 import torch
 import torch.nn as nn
 from typing import Optional, List
@@ -7,10 +7,10 @@ from app.components.mlp_mixer import MLPMixer
 from app.components.memory_module import MemoryModule
 from app.components.cnn import CNN1D
 from app.components.rmsnorm import RMSNorm
-from app.components.rotary_position_embedding import RotaryPositionEmbedding
 from app.components.gated_feedforward import GatedFeedForward
-from app.components.flash_mha import FlashMHA, FLASH_AVAILABLE
+from app.components.flash_mha import FLASH_AVAILABLE
 from app.utils.logger import Logger
+
 
 class TeacherBase:
     """
@@ -20,9 +20,12 @@ class TeacherBase:
     def __init__(self, teacher_model: Optional[nn.Module] = None):
         """
         Initializes an AI teacher with a dedicated model.
-        :param teacher_model: the teacher model, defaulting to an OptimizedStudentTransformer if not provided.
+        :param teacher_model: the teacher model, defaulting to an OptimizedStudentTransformer
+        if not provided.
         """
-        self.teacher_model = teacher_model if teacher_model else self._create_default_model()
+        self.teacher_model = (
+            teacher_model if teacher_model else self._create_default_model()
+        )
         self.logger = Logger.setup_logger(__name__)
         self.logger.info("TeacherBase model initialized successfully.")
 
@@ -79,7 +82,7 @@ class TeacherBase:
         # Extend with logic to adapt teacher's strategy
         pass
 
-    def learn_from_peers(self, peers: List['TeacherBase']):
+    def learn_from_peers(self, peers: List["TeacherBase"]):
         """
         Allows a teacher to learn from other teachers based on their expertise.
         :param peers: Other teachers.
@@ -87,7 +90,7 @@ class TeacherBase:
         self.logger.info("Learning from other teachers...")
         self._adjust_strategy_based_on_peers(peers)
 
-    def _adjust_strategy_based_on_peers(self, peers: List['TeacherBase']):
+    def _adjust_strategy_based_on_peers(self, peers: List["TeacherBase"]):
         """
         Adjusts a teacher's strategy based on the strategies of other teachers.
         :param peers: Other teachers.
